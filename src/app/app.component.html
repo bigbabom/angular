@@ -1,0 +1,34 @@
+
+    <script>
+      
+      $(document).ready(function() { //<<====== wont work without this
+        $(window).scroll(function() {
+            let scrollTopForm = $(window).height() 
+            - ($('.cinema__ticketform').offset().top
+            - $(window).scrollTop() 
+            + $('.cinema__ticketform').height());
+            
+            let dropDownHeight = $('.dropdown-menu').css('height').replace(/[^-\d\.]/g, '');
+            for (let i = 0; i < 4; i++) {
+              if ($('.dropdown-menu').eq(i).css('display') == 'block') {
+                if (scrollTopForm < $('.dropdown-menu').eq(i).css('height').replace(/[^-\d\.]/g, '')) {
+                  //$(window).scrollTop(scrollTopForm + dropDownHeight);
+                  console.log("hello");
+                }
+              } 
+            }
+        });
+      });
+      console.log(document.querySelectorAll('.dropdown-select'));
+      document.querySelectorAll('.dropdown-select').forEach( (btn) => {
+        btn.addEventListener('click', () => {
+          if ($(btn).css('display') == 'block') {
+                if (scrollTopForm < $(btn).css('height').replace(/[^-\d\.]/g, '')) {
+                  //$(window).scrollTop(scrollTopForm + dropDownHeight);
+                  console.log("hello");
+                }
+              } 
+        })
+      }); 
+    </script>
+ 
